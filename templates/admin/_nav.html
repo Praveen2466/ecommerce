@@ -1,0 +1,5 @@
+<nav class="subnav" aria-label="Admin">
+  <a href="/admin" {% if active == 'dashboard' %}aria-current="page"{% endif %}>Dashboard</a>
+  <a href="/admin/products" {% if active == 'products' %}aria-current="page"{% endif %}>Products</a>
+  <a href="/admin/orders" {% if active == 'orders' %}aria-current="page"{% endif %}>Orders</a>
+</nav>

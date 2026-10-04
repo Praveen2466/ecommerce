@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Admin dashboard{% endblock %}
+{% block page %}admin-dashboard{% endblock %}
+{% block content %}
+{% set active = 'dashboard' %}{% include "admin/_nav.html" %}
+<h1>Dashboard</h1>
+<div id="stats" aria-live="polite"><p class="muted">Loading…</p></div>
+{% endblock %}

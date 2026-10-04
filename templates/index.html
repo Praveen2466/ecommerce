@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Shop{% endblock %}
+{% block page %}home{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Everyday things, well made.</h1>
+  <p class="lead">Kitchen, desk and home goods in small runs. Search, add to your cart, and check out in a minute.</p>
+</section>
+<form id="search-form" class="toolbar" role="search">
+  <input id="search" type="search" placeholder="Search by name, description or category" aria-label="Search products">
+  <select id="category" aria-label="Filter by category"><option value="">All categories</option></select>
+</form>
+<div id="grid" class="grid" aria-live="polite"></div>
+{% endblock %}

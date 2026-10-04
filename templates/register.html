@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Create account{% endblock %}
+{% block page %}register{% endblock %}
+{% block content %}
+<section class="narrow">
+  <h1>Create your account</h1>
+  <form id="register-form" class="form" novalidate>
+    <label>Full name <input id="name" type="text" autocomplete="name" maxlength="100" required></label>
+    <label>Email <input id="email" type="email" autocomplete="email" required></label>
+    <label>Password <input id="password" type="password" autocomplete="new-password" minlength="8" required>
+      <small class="muted">At least 8 characters.</small></label>
+    <label>Confirm password <input id="confirm" type="password" autocomplete="new-password" required></label>
+    <div id="form-error" class="notice error" role="alert" hidden></div>
+    <button class="btn" type="submit">Create account</button>
+  </form>
+  <p class="muted">Already registered? <a href="/login">Log in</a></p>
+</section>
+{% endblock %}

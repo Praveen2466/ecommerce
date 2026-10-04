@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Manage products{% endblock %}
+{% block page %}admin-products{% endblock %}
+{% block content %}
+{% set active = 'products' %}{% include "admin/_nav.html" %}
+<div class="row between">
+  <h1>Products</h1>
+  <button class="btn" id="add-product" type="button">Add product</button>
+</div>
+<div id="products" class="table-wrap" aria-live="polite"><p class="muted">Loading…</p></div>
+
+<dialog id="product-dialog">
+  <form id="product-form" class="form" novalidate>
+    <h2 id="dialog-title">Add product</h2>
+    <label>Name <input id="p-name" maxlength="150" required></label>
+    <label>Description <textarea id="p-description" rows="3" maxlength="5000"></textarea></label>
+    <div class="two">
+      <label>Price <input id="p-price" type="number" min="0.01" step="0.01" required></label>
+      <label>Stock <input id="p-stock" type="number" min="0" step="1" required></label>
+    </div>
+    <label>Category <input id="p-category" maxlength="60" list="category-list"></label>
+    <datalist id="category-list"></datalist>
+    <label>Image URL <input id="p-image" type="url" maxlength="500" placeholder="https://… (optional)"></label>
+    <div id="form-error" class="notice error" role="alert" hidden></div>
+    <div class="row end">
+      <button class="btn btn-ghost" type="button" id="cancel-dialog">Cancel</button>
+      <button class="btn" type="submit">Save product</button>
+    </div>
+  </form>
+</dialog>
+{% endblock %}

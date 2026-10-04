@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Manage orders{% endblock %}
+{% block page %}admin-orders{% endblock %}
+{% block content %}
+{% set active = 'orders' %}{% include "admin/_nav.html" %}
+<div class="row between">
+  <h1>Orders</h1>
+  <select id="status-filter" aria-label="Filter by status">
+    <option value="">All statuses</option>
+    <option>Pending</option><option>Confirmed</option><option>Shipped</option>
+    <option>Delivered</option><option>Cancelled</option>
+  </select>
+</div>
+<div id="orders" class="table-wrap" aria-live="polite"><p class="muted">Loading…</p></div>
+{% endblock %}

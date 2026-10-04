@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}My orders{% endblock %}
+{% block page %}orders{% endblock %}
+{% block content %}
+<h1>My orders</h1>
+<div id="placed" class="notice ok" hidden></div>
+<div id="orders" aria-live="polite"><p class="muted">Loading…</p></div>
+{% endblock %}

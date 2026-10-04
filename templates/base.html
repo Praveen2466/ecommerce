@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Shop{% endblock %} | Marlow</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body data-page="{% block page %}{% endblock %}" {% block body_attrs %}{% endblock %}>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="/">Marlow</a>
+      <nav class="nav" aria-label="Main">
+        <a href="/">Shop</a>
+        <a href="/cart">Cart <span id="cart-badge" class="badge" hidden>0</span></a>
+        {% if current_user %}
+          <a href="/orders">My orders</a>
+          {% if current_user.role == 'admin' %}<a href="/admin">Admin</a>{% endif %}
+          <span class="who">{{ current_user.name }}</span>
+          <button type="button" class="link-btn" id="logout-btn">Log out</button>
+        {% else %}
+          <a href="/login">Log in</a>
+          <a class="btn btn-small" href="/register">Create account</a>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="wrap site-footer">Marlow is a student demo store. No real payments are taken.</footer>
+  <div id="toasts" aria-live="polite"></div>
+  <script>window.APP = { currency: {{ currency|tojson }}, user: {{ current_user|tojson }} };</script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
